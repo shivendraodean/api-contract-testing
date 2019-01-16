@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "4f9f2f47-5d7e-49bc-b680-1edb9e873530",
+		"name": "homer-simpson-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Homer Simpson",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6cc27953-6e94-4de5-bae3-4ea87d9eaa54",
+						"exec": [
+							"schema = {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"object\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"required\": [",
+							"    \"firstName\",",
+							"    \"lastName\"",
+							"  ],",
+							"  \"properties\": {",
+							"    \"firstName\": {",
+							"      \"$id\": \"#/properties/firstName\",",
+							"      \"type\": \"string\",",
+							"      \"title\": \"The Firstname Schema\",",
+							"      \"default\": \"\",",
+							"      \"examples\": [",
+							"        \"Homer\"",
+							"      ],",
+							"      \"pattern\": \"^(.*)$\"",
+							"    },",
+							"    \"lastName\": {",
+							"      \"$id\": \"#/properties/lastName\",",
+							"      \"type\": \"string\",",
+							"      \"title\": \"The Lastname Schema\",",
+							"      \"default\": \"\",",
+							"      \"examples\": [",
+							"        \"Simpson\"",
+							"      ],",
+							"      \"pattern\": \"^(.*)$\"",
+							"    }",
+							"  }",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "594d01b4-476c-4f88-9033-f881a37232b9",
+						"exec": [
+							"pm.test(\"Homer's schema should be correct\", function() {",
+							"    var response = pm.response.json();",
+							"    ",
+							"    var result=tv4.validateResult(response, schema)",
+							"",
+							"    pm.expect(result.valid).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		}
+	]
+}

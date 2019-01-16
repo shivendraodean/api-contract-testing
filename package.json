@@ -1,0 +1,16 @@
+{
+  "name": "api-contract-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "contractTests": "node ./apiContractTest.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shivendra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "newman": "^4.3.1"
+  }
+}
